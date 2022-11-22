@@ -4,6 +4,15 @@
 
 {% block content %}
     <h1>Dashboard</h1>
-    <p>Welcome to your Dashboard. 
-        You can <a href="{% url 'edit' %}">edit your profile</a> or <a href="{% url 'password_change' %}">change your password.</a></p>
+    {% with request.user.images_created_count as total_image_created %}
+        <p>
+            Welcome to your Dashboard. You have bookmarked {{ total_image_created }} image {{ total_image_created|pluralize }}.</p>
+        </p> 
+    {% endwith %}
+    <p>
+        Drag the following buttom to your bookmarks toolbar to bookmark images from any website. → <a href="javascript:{% include 'bookmarklet_launcher.js' %}" class="button">Bookmark it</a>
+    </p>
+    <p>
+       You can <a href="{% url 'edit' %}">edit your profile</a> or <a href="{% url 'password_change' %}">change your password.</a>
+    </p>
 {% endblock content %}

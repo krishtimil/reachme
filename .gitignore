@@ -4,6 +4,7 @@
 
 #for profile images
 users/
+images_data/
 
 ### Django ###
 *.log
