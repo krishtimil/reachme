@@ -2,8 +2,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{% block title %}{% endblock%}</title>
-        <link href="{% static 'css/base.css' %}" rel="stylesheet">
+        <title>{% block title %}{% endblock title %}</title>
+        <link href="{% static 'css/base.css' %}" rel="stylesheet"/>
     </head>
     <body>
         <div id="header">
@@ -14,14 +14,14 @@
                         <a href="{% url "dashboard" %}">Dashboard</a>
                     </li>
                     <li {% if section == "images" %}class="selected"{% endif %}>
-                        <a href="#">Images</a>
+                        <a href="{% url "images:list" %}">Images</a>
                     </li>
                     <li {% if section == "people" %}class="selected"{% endif %}>
-                        <a href="#">People</a>
+                        <a href="{% url "user_list" %}">People</a>
                     </li>
                 </ul>
             {% endif %}
-            <span class ="user">
+            <span class="user">
                 {% if request.user.is_authenticated %}
                     Hello {{ request.user.username }}! 
                     <a href="{% url 'logout' %}">Logout</a>
@@ -41,7 +41,7 @@
             </ul>
         {% endif %}
         <div id="content">
-            {% block content %}{% endblock %}
+            {% block content %}{% endblock content %}
         </div>
         <script src="//cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js">
         </script>

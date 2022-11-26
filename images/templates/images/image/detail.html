@@ -15,6 +15,10 @@
                     <span class="total">{{ total_likes }}</span>
                     like{{ total_likes|pluralize }}
                 </span>
+                <span class="count">
+                    {{ total_views }}
+                    view{{ total_views|pluralize }}
+                </span>
                 <a href="#"
                    data-id="{{ image.id }}"
                    class="like button"
@@ -42,14 +46,13 @@
 {% endblock content %}
 
 {% block domready %}
-    var url = '{% url "images:like" %}';
-    var options = {
-        method: 'POST',
-        headers: {'X-CSRFToken': csrftoken},
-        mode: 'same-origin',
-    }
-
-    document.querySelector('a.like').addEventListener('click', function(e) {
+var url = '{% url "images:like" %}';
+var options = {
+  method: 'POST',
+  headers: {'X-CSRFToken': '{{ csrftoken }}'},
+  mode: 'same-origin',
+};
+document.querySelector('a.like').addEventListener('click', function(e) {
         e.preventDefault();
         var likeButton = this;
 
@@ -72,6 +75,6 @@
                     var totalLikes = parseInt(likeCount.innerHTML);
                     likeCount.innerHTML = action == 'like' ? totalLikes + 1 : totalLikes - 1;
                 }
-            })
+            });
     });
 {% endblock domready %}
