@@ -145,6 +145,18 @@ AUTHENTICATION_BACKENDS = [
 
 ##insert all api keys here
 
+SOCIAL_AUTH_FACEBOOK_KEY = '698215341452313'
+SOCIAL_AUTH_FACEBOOK_SECRET = '979efb9128cb40c041c6ad66ba47d963'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+
+SOCIAL_AUTH_TWITTER_KEY = 'B4KP8CX819YYR0WIo7jyNWvlV'
+SOCIAL_AUTH_TWITTER_SECRET = 'UfCOtk7euiIKPcyIroQuRf7nhonOwoStgBnfZzkYhTxXE5hVdB'
+
+#SOCIAL_AUTH_GOOGLE_KEY = '884126246265-dve7haoqbroc3t7cm3qlnm8d8s1kbejh.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '884126246265-dve7haoqbroc3t7cm3qlnm8d8s1kbejh.apps.googleusercontent.com'
+
 SOCIAL_AUTH_PIPELINE = [
     'social_core.pipeline.social_auth.social_details',
     'social_core.pipeline.social_auth.social_uid',
